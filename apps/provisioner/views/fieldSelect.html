@@ -1,0 +1,19 @@
+﻿<div class="control-group{{#if inherit}} warning{{/if}}">
+    <label class="control-label" for="{{path}}">{{text}}</label>
+    <div class="controls">
+        <div class="pull-left">
+            <select id="{{path}}" name="{{path}}">
+                {{#each options}}
+                <option value="{{value}}" {{#compare value '==' ../value}} selected{{/compare}}>{{text}}</option>
+                {{/each}}
+            </select>
+            {{#if tooltip}}
+            <i class="help-popover fa fa-question-circle" data-toggle="tooltip" data-placement="right" data-original-title="{{tooltip}}"></i>
+            {{/if}}
+        </div>
+        {{#if inheritData}}
+        <div class="help-inline">
+            {{i18n.inherits.partOne}}<strong>{{inheritData.text}}</strong>{{i18n.inherits.partTwo}}<strong>{{inheritData.level}}</strong>
+            {{/if}}
+        </div>
+    </div>

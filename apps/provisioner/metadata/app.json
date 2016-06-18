@@ -1,0 +1,32 @@
+{
+	"name": "provisioner",
+	"i18n": {
+		"en-US": {
+			"label": "Advanced Provisioner",
+			"description": "This app allows you to customize every setting available on your device, with our Advanced Provisioner.",
+			"extended_description": "",
+			"features": []
+		}
+	},
+	"tags": [
+		"reseller",
+		"carrier"
+	],
+	"icon": "Provisioning_app.png",
+	"api_url": "http://10.26.0.41:8000/v2",
+	"author": "2600Hz",
+	"version": "1.0",
+	"license": "-",
+	"price": 0,
+	"screenshots": [
+		"provisioner_1.png",
+		"provisioner_2.png",
+		"provisioner_3.png",
+		"provisioner_4.png"
+	],
+	"urls": {
+		"documentation": "{documentation_url}",
+		"howto": "{howto_video_url}"
+	},
+	"pvt_type": "app"
+}

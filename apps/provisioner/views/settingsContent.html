@@ -1,0 +1,59 @@
+﻿
+<div id="provisioner-container">
+    <div class="device-settings">
+        <ul class="breadcrumb">
+            <li><a class="cancel" href="#">{{i18n.accounts}}</a><span class="divider">></span></li>
+            <li>{{viewType}}</li>
+        </ul>
+        <div class="settings-content">
+            <div id="nav-bar-horizontal" class="nav">
+                {{#each sections}}
+                <a class="switch-link" data-key="{{@key}}">
+                    {{#if icon}}
+                    <i class="fa fa-{{icon}}"></i>
+                    {{/if}}
+                    <div class="title" title="{{text}}">{{text}}</div>
+                </a>
+                {{/each}}
+            </div>
+            <div class="container" id="form2object">
+                {{#each sections}}
+                <form class="form-horizontal content" data-key="{{@key}}">
+                    {{#if iterate}}
+                    {{#compare iterate '!==' 1}}
+                    <div class="nav nav-bar">
+                        {{#each data}}
+                        <a class="switch-sublink{{#compare @key '===' '0'}} active{{/compare}}" data-key="{{@key}}">{{@key}}</a>
+                        {{/each}}
+                    </div>
+                    {{/compare}}
+                    {{#each data}}
+                    <div class="sub-content{{#compare @key '===' '0'}} active{{/compare}}" data-key="{{@key}}">
+                        {{#each this}}
+                        <div class="{{@key}}">
+                            <legend>{{text}}</legend>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    {{#each data}}
+                    <div class="{{@key}}">
+                        <legend>{{text}}</legend>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                </form>
+                {{/each}}
+                <div class="actions">
+                    <button class="monster-button monster-button-danger pull-left cancel">{{i18n.cancel}}</button>
+                    <button class="monster-button monster-button-success pull-right" id="save">{{i18n.save}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-div">
+        <i class="fa fa-spinner fa-3x fa-spin monster-blue"></i>
+        <span>{{loadingMessage}}</span>
+    </div>
+</div>

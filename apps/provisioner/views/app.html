@@ -1,0 +1,79 @@
+﻿<div id="provisioner-container">
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{i18n.provisionerUrl}} <strong>{{provisionerUrl}}</strong>
+    </div>
+    <div class="actions-wrapper">
+        {{#if isReseller}}
+        <a href="#" id="update_provider" class="action-device">
+            <i class="fa fa-cog"></i>{{ i18n.providerSettings }}
+        </a>
+        {{/if}}
+        <div class="input-append pull-right search-custom" id="search_device">
+            <input class="span2" type="text" placeholder="{{ i18n.searchDevicePlaceholder }}">
+            <button class="monster-button monster-button-success non-fixed" id="search-device" type="button">{{ i18n.search }}</button>
+        </div>
+    </div>
+    <div class="accounts-list">
+        {{#each accounts}}
+        <div class="account-section" data-id="{{id}}" data-name="{{name}}">
+            <div class="account-header">
+                <div class="right-links pull-right">
+                    <a href="#" class="action-device update-account">
+                        <i class="fa fa-cog"></i>
+                        <span class="action-text">{{ @root.i18n.accountSettings }}</span>
+                    </a>
+                    <a href="#" class="action-device add-device">
+                        <i class="fa fa-plus-circle"></i>
+                        <span class="action-text">{{@root.i18n.addDevice}}</span>
+                    </a>
+                </div>
+                <div class="left-part pull-left">
+                    <i class="fa fa-chevron-right"></i>
+                </div>
+                <div class="expandable">
+                    {{name}}
+                </div>
+            </div>
+            <div class="devices-wrapper">
+                {{#each devices}}
+                <div class="device-box" data-mac-address="{{mac_address}}" data-brand="{{brand}}" data-family="{{family}}" data-model="{{model}}" data-kazooid="{{kazoo_id}}" data-status="{{status}}">
+                    <div class="pull-left">
+                        <div class="device-name">{{name}}</div>
+                        <div class="device-mac-address">{{mac_address_formatted}}</div>
+                        <div class="device-brand brand-box" style="background-image: url('css/assets/brands/{{brand}}.png');"></div>
+                        <div class="device-model model-image" data-toggle="tooltip" data-placement="right" data-original-title="{{brand}} - {{model}}" style="background-image: url('css/assets/models/{{brand}}_{{family}}_{{model}}.jpg');"></div>
+                    </div>
+
+                    <span class="pull-right">
+                        <div class="navbar">
+                            <ul class="nav pull-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-2x fa-cog"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="provisioner-action-link provision-devices"><a href="javascript:void(0);"><i class="fa fa-cog monster-blue"></i>{{ @root.i18n.configure }}</a></li>
+                                        <li class="provisioner-action-link unlock-devices">
+                                            <a href="javascript:void(0)">
+                                                <i class="fa fa-unlock monster-yellow"></i>
+                                                {{@root.i18n.unlock}}
+                                            </a>
+                                        </li>
+                                        <li class="provisioner-action-link restart-devices{{#unless showRestart}} disabled{{/unless}}" {{#unless showRestart}} data-toggle="tooltip" data-placement="top" data-original-title="{{ @root.i18n.restart.disabled }}" {{/unless}}><a href="javascript:void(0);"><i class="fa fa-refresh monster-green"></i>{{ @root.i18n.restart.label }}</a></li>
+                                        <li class="divider"></li>
+                                        <li class="provisioner-action-link delete-devices"><a href="javascript:void(0);"><i class="fa fa-times monster-red"></i>{{ @root.i18n.delete }}</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </span>
+                </div>
+                {{else}}
+                <div class="device-box no-data">
+                    {{@root.i18n.noDevices}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
