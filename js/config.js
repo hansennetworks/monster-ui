@@ -103,10 +103,10 @@ define(function (require) {
             language: 'en-US',
 
             // Application title, displayed in the browser tab
-            applicationTitle: 'Monster UI',
+            applicationTitle: 'HansenNetworks - Hosted Cloud Services',
 
             // Company Name, used in many places in the UI
-            companyName: '2600hz',
+            companyName: 'HansenNetworks',
 
             nav: {
                 // Link used when user click on the top-right interrogation mark

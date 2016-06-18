@@ -70,7 +70,7 @@ require.config({
 			'exports': '_'
 		}
 	},
-	urlArgs: 'bust=' + (new Date()).getTime()
+	//urlArgs: 'bust=' + (new Date()).getTime()
 });
 
 require(['jquery', 'monster', 'plugins', 'bootstrap', 'bootstrap-clickover', 'touch-punch'], function($, monster){
